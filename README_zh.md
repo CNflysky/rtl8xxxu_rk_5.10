@@ -12,7 +12,7 @@
 首先确保你的系统上安装了对应的内核头文件；  
 如果你使用`armbian`，输入以下命令安装内核头文件：
 ```bash
-sudo apt install -y linux-headers-legacy-rockchip-rk3588
+sudo apt install -y linux-headers-legacy-rk35xx
 ```
 安装完成后,使用以下命令编译模块：
 ```bash
