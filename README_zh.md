@@ -61,3 +61,10 @@ Bus 007 Device 002: ID 0bda:f179 Realtek Semiconductor Corp. RTL8188FTV 802.11b/
     link/ether **:**:**:**:**:** brd ff:ff:ff:ff:ff:ff
 ```
 然后你就可以使用你喜欢的方式（`wpa_supplicant`/`nmcli`/`nmtui`/`高级网络管理器`），连接到无线网络了。
+
+# 开启HT40模式
+`/etc/modprobe.d/rt8xxxu.conf`:
+```bash
+options rtl8xxxu ht40_2g=1
+```
+在我的设备上启用本参数后，实测内网下载速率提升到了`5M/s`（未启用前`3M/s`）。

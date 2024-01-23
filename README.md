@@ -63,3 +63,10 @@ you can use `ip addr` command to see the wireless interface:
     link/ether **:**:**:**:**:** brd ff:ff:ff:ff:ff:ff
 ```
 Finally you can use your favorite wireless management tool(`wpa_supplicant`/`nmcli`/`nmtui`/`Advanced Network Configuration`) to connect WiFi.
+
+# Enable HT40 Support
+`/etc/modprobe.d/rt8xxxu.conf`:
+```bash
+options rtl8xxxu ht40_2g=1
+```
+After enable this param on my hardware, Transfer speed increased from `3MB/s` to `5MB/s` in my local network.
