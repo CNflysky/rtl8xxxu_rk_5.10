@@ -12,7 +12,7 @@ Then simply build your kernel.
 Make sure you have kernel headers installed;  
 `Armbian` users can install it using following command:  
 ```bash
-sudo apt install -y linux-headers-legacy-rockchip-rk3588
+sudo apt install -y linux-headers-legacy-rk35xx
 ```
 build the module:
 ```bash
