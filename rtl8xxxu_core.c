@@ -781,7 +781,8 @@ rtl8xxxu_writeN(struct rtl8xxxu_priv *priv, u16 addr, u8 *buf, u16 len)
 				      addr, 0, buf, blocksize,
 				      RTW_USB_CONTROL_MSG_TIMEOUT);
 		if (ret != blocksize)
-			goto write_error;
+			dev_info(&udev->dev,"Transfered bytes %04x not equal block size %04x!",ret,blocksize);
+			// goto write_error;
 
 		addr += blocksize;
 		buf += blocksize;
@@ -793,16 +794,17 @@ rtl8xxxu_writeN(struct rtl8xxxu_priv *priv, u16 addr, u8 *buf, u16 len)
 				      addr, 0, buf, remainder,
 				      RTW_USB_CONTROL_MSG_TIMEOUT);
 		if (ret != remainder)
-			goto write_error;
+			dev_info(&udev->dev,"Transfered bytes %04x not equal block size %04x!",ret,blocksize);
+			//goto write_error;
 	}
 
 	return len;
 
-write_error:
+/*write_error:
 	dev_info(&udev->dev,
 		 "%s: Failed to write block at addr: %04x size: %04x\n",
 		 __func__, addr, blocksize);
-	return -EAGAIN;
+	return -EAGAIN;*/
 }
 
 u32 rtl8xxxu_read_rfreg(struct rtl8xxxu_priv *priv,
